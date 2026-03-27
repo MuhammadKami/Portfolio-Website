@@ -5,13 +5,6 @@ import CoreContent from '@/components/blog/CoreContent.astro'
 import Sidekick from '@/components/blog/Sidekick.astro'
 import EngagementLayer from '@/components/blog/EngagementLayer.astro'
 
-import GtaImg from '@/assets/backend-services/gta.png'
-import FrontendImg from '@/assets/frontend-services/frontend.jpg'
-import ApiImg from '@/assets/backend-services/api.jpg'
-import CloudImg from '@/assets/backend-services/cloud2.jpg'
-import BackendImg from '@/assets/backend-services/backend2.jpg'
-import Frontend2Img from '@/assets/frontend-services/frontend2.jpg'
-
 export async function getStaticPaths() {
   const blogs = [
     {
@@ -20,7 +13,7 @@ export async function getStaticPaths() {
       category: "Engineering",
       date: "JAN 14",
       time: "25 MIN",
-      img: GtaImg,
+      img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1600&auto=format&fit=crop",
       intro: [
         "In high-load environments, garbage collection is not just a background process—it is a critical performance factor that dictates the upper bounds of system stability. When we analyze telemetry data from modern Node.js clusters, we consistently observe that approximately 40% of tail-latency spikes stem from unoptimized heap management and poorly timed stop-the-world events. As request volumes move into hyperscale, the non-deterministic nature of resource reclamation becomes a primary engineering hurdle that cannot be solved by hardware scaling alone.",
         "The fundamental challenge lies in the trade-off between throughput and latency. Standard garbage collection algorithms often prioritize reclaiming memory as quickly as possible, which leads to CPU-intensive scanning phases that block the main execution thread. In a distributed architecture, these 'micro-pauses' cascade through the network, resulting in timeout errors at the API gateway level. This is specifically problematic for real-time systems where a 50ms pause can trigger a retry storm, further saturating the already stressed infrastructure.",
@@ -58,7 +51,7 @@ export async function getStaticPaths() {
       category: "Frontend Systems",
       date: "JAN 08",
       time: "22 MIN",
-      img: FrontendImg,
+      img: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?q=80&w=1600&auto=format&fit=crop",
       intro: [
         "Managing a frontend component library beyond 500 components is an exercise in controlled entropy. Without an opinionated architectural framework, design systems collapse under their own weight—becoming graveyards of inconsistent tokens, duplicated patterns, and tribal knowledge that lives nowhere except the heads of senior engineers. Atomic Design, when executed at enterprise scale, transforms this chaos into a composable, auditable, and self-documenting system of visual primitives.",
         "The core premise is deceptively simple: decompose every interface into five hierarchical tiers—Atoms, Molecules, Organisms, Templates, and Pages. In practice, the real engineering challenge emerges when this taxonomy must serve twelve product teams simultaneously, each operating in a multi-tenant environment with distinct theming requirements, accessibility mandates, and performance budgets. The component library becomes infrastructure, and infrastructure demands the same observability and versioning discipline as any backend service.",
@@ -96,7 +89,7 @@ export async function getStaticPaths() {
       category: "Performance",
       date: "DEC 28",
       time: "18 MIN",
-      img: ApiImg,
+      img: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=1600&auto=format&fit=crop",
       intro: [
         "Interaction to Next Paint (INP) has emerged as the definitive measure of runtime responsiveness, replacing First Input Delay as the Core Web Vital that Google uses to evaluate user experience. Unlike FID, which only measures the delay of the first interaction, INP captures the worst-case latency across the entire page lifecycle—making it ruthlessly honest about how your application actually performs under sustained user engagement. For e-commerce platforms processing thousands of daily interactions, a poor INP score directly correlates with abandoned carts and lost revenue.",
         "The technical challenge with INP is that it exposes problems that traditional performance audits miss entirely. A page can score a perfect Lighthouse performance score while delivering a catastrophic INP, because the bottleneck is not in initial load but in post-hydration event handling. Every click, tap, and keyboard input is measured from the moment the browser receives the input event to the moment the next frame is painted with the visual update. The threshold is unforgiving: anything above 200ms is classified as 'needs improvement,' and above 500ms is 'poor.'",
@@ -134,7 +127,7 @@ export async function getStaticPaths() {
       category: "Architecture",
       date: "DEC 15",
       time: "28 MIN",
-      img: CloudImg,
+      img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto=format&fit=crop",
       intro: [
         "The transition from monolithic request-response architectures to event-driven microservices represents the most consequential infrastructure shift of the modern era. In a synchronous architecture, service coupling is implicit—every API call creates a hard dependency that transforms independent deployments into coordinated release ceremonies. Event-driven systems invert this relationship: services communicate through immutable events published to a durable log, and consumers process these events at their own pace, in their own time, with their own failure semantics.",
         "Apache Kafka and RabbitMQ represent two fundamentally different philosophies of event distribution. Kafka is a distributed commit log optimized for high-throughput, ordered, replayable event streams—ideal for event sourcing and stream processing pipelines. RabbitMQ is a message broker optimized for complex routing, priority queuing, and guaranteed delivery—ideal for task distribution and workflow orchestration. The choice between them is not a matter of preference but of understanding the specific guarantees your system requires at each integration boundary.",
@@ -172,7 +165,7 @@ export async function getStaticPaths() {
       category: "Engineering",
       date: "JAN 12",
       time: "30 MIN",
-      img: BackendImg,
+      img: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop",
       intro: [
         "Every line of JavaScript you write undergoes a transformation journey that most developers never witness. Between your <code>const x = a + b</code> and the CPU instruction that performs the addition, there exists a sophisticated pipeline of parsing, abstract syntax tree generation, bytecode compilation, speculative optimization, and just-in-time machine code generation. Understanding this pipeline is not academic curiosity—it is the key to writing code that the V8 engine can optimize aggressively, and avoiding the 'performance cliffs' that cause seemingly innocent code changes to trigger 10x slowdowns.",
         "The V8 engine, which powers both Chrome and Node.js, operates a two-tier compilation strategy. The first tier, Ignition, is a fast bytecode interpreter that begins executing your code almost immediately after parsing. The second tier, TurboFan, is an optimizing compiler that monitors hot code paths—functions executed hundreds or thousands of times—and compiles them into highly optimized machine code. This dual approach balances startup speed (Ignition) with peak throughput (TurboFan), adapting in real-time to the actual runtime behavior of your application.",
@@ -210,7 +203,7 @@ export async function getStaticPaths() {
       category: "Frontend Systems",
       date: "JAN 05",
       time: "20 MIN",
-      img: Frontend2Img,
+      img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop",
       intro: [
         "The React ecosystem has a state management problem that no amount of <code>useState</code> hooks, context providers, or Redux reducers can solve: the explosion of impossible states. A modal that is simultaneously 'loading' and 'error.' A form that is 'submitted' but still 'editing.' A checkout flow that reaches a payment step without a shipping address. These bugs do not originate from bad code—they originate from an architectural model that represents state as a bag of independent boolean flags instead of a finite set of explicitly defined configurations.",
         "Finite state machines (FSMs) and their more powerful cousin, statecharts, solve this problem at the modeling layer. Instead of tracking <code>isLoading</code>, <code>isError</code>, <code>isSuccess</code>, and <code>isIdle</code> as four independent booleans (which creates 16 possible combinations, most of them nonsensical), a state machine declares exactly four states: <code>idle</code>, <code>loading</code>, <code>success</code>, and <code>error</code>. The system can only be in one state at a time, and transitions between states are triggered by explicit events. There is no combination of user actions that can put the system into an undefined configuration.",

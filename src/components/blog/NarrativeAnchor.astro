@@ -8,6 +8,7 @@ const { post } = Astro.props;
   <div class="absolute inset-0 z-0">
     <Image 
       src={post.img} 
+      inferSize={true}
       alt={post.title} 
       class="w-full h-full object-cover saturate-[0.3] opacity-60"
     />
